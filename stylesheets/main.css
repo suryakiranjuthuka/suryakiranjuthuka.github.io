@@ -1158,7 +1158,7 @@ box-shadow: 0 0 5px grey;
 /*--------------------------------- D7 ------------------------------------*/
 #D7Container{
     width: 600px;
-    height: 150px;
+    height: 170px;
     position: absolute;
     top: 20%;
     left:0;
@@ -1198,9 +1198,38 @@ box-shadow: 0 0 5px grey;
    font-size: 20px;
     color: #8795a4;
     text-shadow: 1px 2px 1px rgba(0,0,0,.3);
-    margin: 15px 0 40px;
+    margin: 15px 0 15px;
+}
+
+#D7 p:nth-child(3){
+    margin-bottom: 30px;
+}
+
+#D7 p a{
+    color: #8795a4;
+}
+
+#D7 p a:hover{
+    color: #EA5460;
 }
 
 #D7Next{
     position: relative;
+}
+
+#temporary{
+    position: relative;
+    float: right;
+    color: grey;
+    top: -20px;
+    margin-right: 20px;
+}
+
+#temporary a{
+    color: grey;
+}
+
+#header #temporary a:hover{
+    color: #EA5460;
+    cursor: pointer;
 }

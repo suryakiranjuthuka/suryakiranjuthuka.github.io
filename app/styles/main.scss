@@ -151,32 +151,55 @@ html{
       
       .contentPara{
         font-size: 26px;
-        margin: 10px 0px 35px;
+        margin: 15px 0px 40px;
         color: $text-dark;
         padding-top: 25px;
         border-top: 2px solid $primary-color-dark;
       }
       
-      .portfolioButton{
-        padding: 12px 30px;
-        background-color: $green-color;
-        text-decoration: none;
-        // color: $text-dark;
-        color: rgba(0,0,0,.65);
+      .buttonsContainer{
         font-size: 16px;
-        border-radius: 3px;
+        display: block;
         text-transform: uppercase;
-        font-weight: 700;
-        @extend .boxShadow1;
-        display: inline-block;
-        margin: 0 auto;
-        cursor: pointer;
-        position: relative;
-        top: 0;
-      }
-      
-      .portfolioButton:hover{
-        top: 1px;
+        margin-bottom: 10px;
+        
+        .portfolioButton{
+          background: none;
+          border: 3px solid white;
+          color: white;
+          margin-right: 20px;
+          display: inline-block;
+          text-align: center;
+          border-radius: 2px;
+          @extend .boxShadow1;
+          cursor: pointer;
+          position: relative;
+          top: 0px;
+          text-decoration: none;
+        }
+        
+        .resumeButton{
+          background-color: $accent-color;
+          color: rgba(0,0,0,.78);
+          display: inline-block;
+          border: 3px solid $accent-color;
+          text-align: center;
+          border-radius: 2px;
+          @extend .boxShadow1;
+          cursor: pointer;
+          position: relative;
+          top: 0px;
+          text-decoration: none;
+        }
+        
+        .portfolioButton, .resumeButton{
+          width: 136px;
+          padding: 10px 25px;
+        }
+        
+        // .portfolioButton:hover, .resumeButton:hover{
+        //   top: 1px;
+        // }
       }
       
     }

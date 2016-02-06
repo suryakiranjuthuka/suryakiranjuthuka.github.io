@@ -1,4 +1,4 @@
-// Generated on 2016-02-01 using
+// Generated on 2016-02-06 using
 // generator-webapp 1.1.0
 'use strict';
 
@@ -7,8 +7,6 @@
 // 'test/spec/{,*/}*.js'
 // If you want to recursively match all subfolders, use:
 // 'test/spec/**/*.js'
-
-
 
 module.exports = function (grunt) {
 
@@ -19,17 +17,12 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin'
   });
-  
-  //load Grunt Build Control
-  grunt.loadNpmTasks('grunt-build-control');
 
   // Configurable paths
   var config = {
     app: 'app',
     dist: 'dist'
   };
-  
-  var pkg = require('./package.json');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -214,7 +207,6 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= config.app %>/index.html'],
-        exclude: ['bootstrap.js'],
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
@@ -345,21 +337,6 @@ module.exports = function (grunt) {
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*'
           ]
-        },{
-          expand: true,
-          dot: true,
-          cwd: '<%= config.app %>',
-          dest: '<%= config.dist %>',
-          src: 'images/*'
-        },{
-          expand: true,
-          dot: true,
-          cwd: '.',
-          src: [
-            '.gitignore',
-            'CNAME'
-          ],
-          dest: '<%= config.dist %>'
         }]
       }
     },
@@ -393,26 +370,10 @@ module.exports = function (grunt) {
       dist: [
         'babel',
         'sass',
+        'imagemin',
         'svgmin'
       ]
-    },
-    
-    //GRUNT BUILD CONTROL
-    buildcontrol: {
-      options: {
-        dir: 'dist',
-        commit: true,
-        push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      local: {
-        options: {
-          remote: '../',
-          branch: 'master'
-        }
-      }
     }
-    
   });
 
 

@@ -1,19 +1,6 @@
 @import 'reset';
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
-$mobile: "only screen and (max-width: 449px)";
-$responsive: "only screen and (max-width: 900px)";
-
-//VARIABLES
-$primary-color:   #504B6E;
-$primary-color-dark: #4C476A;
-$green-color:   #1BBC9C;
-$green-color-dark:   #1CA58C;
-$accent-color:   #DE6056;
-$text-dark: rgba(0,0,0,.38);
-$text-light: rgba(255,255,255,.38);
-
-
 //VARIABLES
 $primary-color:   #2C3E50;
 $primary-color-dark: #263645;
@@ -24,6 +11,13 @@ $accent-color:   #E74C3C;
 // $text-light: #C6E8EF;
 $text-dark: #46BCFF;
 $text-light: #C6E8EF;
+
+/* Responsive: Portrait tablets and up */
+//@media screen and (min-width: 1100px) { 
+//}
+$mobile: "only screen and (max-width: 449px)";
+$responsive: "only screen and (max-width: 900px)";
+
 
 
 html, body{
@@ -62,6 +56,10 @@ html{
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
+.transition{
+  transition: all 0.2s ;
+}
+
 @mixin vertical-align {
   position: relative;
   top: 50%;
@@ -71,48 +69,106 @@ html{
 }
 
 
+    $index1: "only screen and (max-width: 800px)";
+    $index2: "only screen and (max-width: 570px)";
+    $index3: "only screen and (max-width: 400px)";
+    $nexus: "only screen and (max-width: 440px)";
+    $testing: "only screen and (max-width: 400px)";
     
     nav{
       background-color: $primary-color-dark;
-      padding: 15px 0 12px;
-      // height: 25px;
-      // @extend .boxShadow;
+      padding: 15px 0 0px;
+      @media #{$testing} {
+        // background-color: $primary-color;
+      }
       
       ul{
         max-width: 400px;
         margin-left: auto;
+        font-size: 0px;
+        position:relative;
+        margin-right: 45px;
+        @media #{$index1} {
+          margin-right: -5px;
+          transition: all .2s;
+        }
+        @media #{$index2} {
+          margin: 0 auto;
+          @extend .transition;
+        }    
+        @media #{$index3} {
+          width: 360px;
+          @extend .transition;
+        }   
       }
         
       ul li{ 
         display: inline-block;
-        margin: 0 5px;
-        font-size: 15px;
+        padding: 0 5px;
         text-transform: uppercase;
+        cursor: pointer;  
+        @media #{$index3} {
+          padding: 0;
+          @extend .transition;
+        }     
       }  
+      
+      .activeLine{
+        width: 90px;
+        height: 3px;
+        background-color: $accent-color;
+        vertical-align: bottom;
+        display: inline-block;
+        position: absolute;
+        bottom: 0px;
+        left: 5px;
+        transition-duration: 0.4s;
+        transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.10);
+        border-radius: 0px;
+        @media #{$index3} {
+          left: 0px;
+        }  
+      }
+      
+      ul li:hover:nth-child(1) ~ .activeLine{
+        left: 5px;
+        @media #{$index3} {
+          left: 0px;
+        }  
+      }
+      ul li:hover:nth-child(2) ~ .activeLine{
+        left: 105px;
+        @media #{$index3} {
+          left: 90px;
+        }  
+      }
+      ul li:hover:nth-child(3) ~ .activeLine{
+        left: 205px;
+        @media #{$index3} {
+          left: 180px;
+        }  
+      }
+      ul li:hover:nth-child(4) ~ .activeLine{
+        left: 305px;
+        @media #{$index3} {
+          left: 270px;
+        }  
+      }
       
       ul li a{
         text-decoration: none;
-        padding: 0 6px;
-        padding-bottom: 11px;
+        padding: 0 0px;
+        font-size: 15px;
+        display: inline-block;
+        width: 90px;
+        padding-bottom: 10px;
+        text-align: center;
         color: $text-light;
         border-bottom: 3px solid rgba(255,255,255,.4);
         -webkit-transition: all 0.2s ease-in-out;
-                transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }  
-      
-      ul li a:hover{
-        // color: $green-color;
-        border-bottom: 3px solid $green-color;
-      }
-      
-      ul li a.active{
-        border-bottom: 3px solid $green-color;
-      }
-      
-      ul li a.active:hover{
-        color: $text-light;
-        border-bottom: 3px solid $green-color;
-      }
       
     }
     
@@ -121,6 +177,10 @@ html{
   border: 50px solid darken(#2C3E50, 3%);
   border-top: 0px solid $primary-color-dark;
   box-sizing: border-box;
+  @media #{$index2} {
+    border-width: 0px;
+    @extend .transition;
+  }
   
   .container{
     
@@ -134,19 +194,21 @@ html{
       -webkit-transform: translateX(-50%) translateY(-45%);
           -ms-transform: translateX(-50%) translateY(-45%);
               transform: translateX(-50%) translateY(-45%);
-      // background-color: $primary-color-dark;
-      // padding: 50px;
-      // @extend .boxShadow;
       width: 60%;
-      
+      @media #{$index2} {
+        width: 82%;
+        @extend .transition;
+      }      
       
       .title{
         font-size: 75px;
-        // font-weight: 300;
-        // color: rgba(255,255,255,.7);
         color: $text-light;
         line-height: 1.2;
-        // text-shadow: 2px 4px 3px rgba(0,0,0,0.1);
+        @media #{$index1} {
+          font-size: 50px;
+          line-height: 1;
+          @extend .transition;
+        }
       }
       
       .contentPara{
@@ -155,6 +217,12 @@ html{
         color: $text-dark;
         padding-top: 25px;
         border-top: 2px solid $primary-color-dark;
+        @media #{$index1} {
+          font-size: 20px;
+          padding-top: 15px;
+          margin-bottom: 30px;
+          @extend .transition;
+        }
       }
       
       .buttonsContainer{
@@ -162,6 +230,10 @@ html{
         display: block;
         text-transform: uppercase;
         margin-bottom: 10px;
+        @media #{$index1} {
+          font-size: 14px;
+          @extend .transition;
+        }
         
         .portfolioButton{
           background: none;
@@ -176,6 +248,9 @@ html{
           position: relative;
           top: 0px;
           text-decoration: none;
+          @media #{$index1} {
+            margin-right: 15px;
+          }
         }
         
         .resumeButton{
@@ -195,6 +270,16 @@ html{
         .portfolioButton, .resumeButton{
           width: 136px;
           padding: 10px 25px;
+          @media #{$index1} {
+            border-width: 2px;
+            width: 120px;
+            padding: 8px 19px;
+          }
+          @media #{$index2} {
+            margin-right: 0px;
+            margin-bottom: 15px;
+            width:80%;
+          }
         }
         
         // .portfolioButton:hover, .resumeButton:hover{

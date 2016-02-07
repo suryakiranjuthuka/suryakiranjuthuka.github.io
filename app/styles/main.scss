@@ -12,13 +12,6 @@ $accent-color:   #E74C3C;
 $text-dark: #46BCFF;
 $text-light: #C6E8EF;
 
-/* Responsive: Portrait tablets and up */
-//@media screen and (min-width: 1100px) { 
-//}
-$mobile: "only screen and (max-width: 449px)";
-$responsive: "only screen and (max-width: 900px)";
-
-
 
 html, body{
     font-family: 'Lato', sans-serif;
@@ -69,108 +62,116 @@ html{
 }
 
 
-    $index1: "only screen and (max-width: 800px)";
-    $index2: "only screen and (max-width: 570px)";
-    $index3: "only screen and (max-width: 400px)";
-    $nexus: "only screen and (max-width: 440px)";
-    $testing: "only screen and (max-width: 400px)";
+/* Responsive: Portrait tablets and up */
+//@media screen and (min-width: 1100px) { 
+//}
+// $mobile: "only screen and (max-width: 449px)";
+// $responsive: "only screen and (max-width: 900px)";
+$index1: "only screen and (max-width: 800px)";
+$index2: "only screen and (max-width: 570px)";
+$index3: "only screen and (max-width: 400px)";
+$nexus: "only screen and (max-width: 440px)";
+$testing: "only screen and (max-width: 400px)";
     
-    nav{
-      background-color: $primary-color-dark;
-      padding: 15px 0 0px;
-      @media #{$testing} {
-        // background-color: $primary-color;
-      }
-      
-      ul{
-        max-width: 400px;
-        margin-left: auto;
-        font-size: 0px;
-        position:relative;
-        margin-right: 45px;
-        @media #{$index1} {
-          margin-right: -5px;
-          transition: all .2s;
-        }
-        @media #{$index2} {
-          margin: 0 auto;
-          @extend .transition;
-        }    
-        @media #{$index3} {
-          width: 360px;
-          @extend .transition;
-        }   
-      }
-        
-      ul li{ 
-        display: inline-block;
-        padding: 0 5px;
-        text-transform: uppercase;
-        cursor: pointer;  
-        @media #{$index3} {
-          padding: 0;
-          @extend .transition;
-        }     
-      }  
-      
-      .activeLine{
-        width: 90px;
-        height: 3px;
-        background-color: $accent-color;
-        vertical-align: bottom;
-        display: inline-block;
-        position: absolute;
-        bottom: 0px;
-        left: 5px;
-        transition-duration: 0.4s;
-        transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.10);
-        border-radius: 0px;
-        @media #{$index3} {
-          left: 0px;
-        }  
-      }
-      
-      ul li:hover:nth-child(1) ~ .activeLine{
-        left: 5px;
-        @media #{$index3} {
-          left: 0px;
-        }  
-      }
-      ul li:hover:nth-child(2) ~ .activeLine{
-        left: 105px;
-        @media #{$index3} {
-          left: 90px;
-        }  
-      }
-      ul li:hover:nth-child(3) ~ .activeLine{
-        left: 205px;
-        @media #{$index3} {
-          left: 180px;
-        }  
-      }
-      ul li:hover:nth-child(4) ~ .activeLine{
-        left: 305px;
-        @media #{$index3} {
-          left: 270px;
-        }  
-      }
-      
-      ul li a{
-        text-decoration: none;
-        padding: 0 0px;
-        font-size: 15px;
-        display: inline-block;
-        width: 90px;
-        padding-bottom: 10px;
-        text-align: center;
-        color: $text-light;
-        border-bottom: 3px solid rgba(255,255,255,.4);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-      }  
-      
+nav{
+  background-color: $primary-color-dark;
+  padding: 0px;
+  height: 50px;
+  @media #{$testing} {
+    // background-color: $primary-color;
+  }
+  
+  ul{
+    max-width: 400px;
+    margin-left: auto;
+    font-size: 0px;
+    position:relative;
+    margin-right: 45px;
+    @media #{$index1} {
+      margin-right: -5px;
+      transition: all .2s;
     }
+    @media #{$index2} {
+      margin: 0 auto;
+      @extend .transition;
+    }    
+    @media #{$index3} {
+      width: 360px;
+      @extend .transition;
+    }   
+  }
+    
+  ul li{ 
+    display: inline-block;
+    padding: 16px 5px 0;
+    vertical-align: bottom;
+    text-transform: uppercase;
+    cursor: pointer;  
+    @media #{$index3} {
+      padding: 16px 0 0;
+      @extend .transition;
+    }     
+  }  
+  
+  .activeLine{
+    width: 90px;
+    // height: 3.4px;
+    height: 3px;
+    background-color: $accent-color;
+    vertical-align: bottom;
+    display: inline-block;
+    position: absolute;
+    bottom: -.4px;
+    left: 5px;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.06);
+    border-radius: 0px;
+    @media #{$index3} {
+      left: 0px;
+    }  
+  }
+  
+  ul li:hover:nth-child(1) ~ .activeLine{
+    left: 5px;
+    @media #{$index3} {
+      left: 0px;
+    }  
+  }
+  ul li:hover:nth-child(2) ~ .activeLine{
+    left: 105px;
+    @media #{$index3} {
+      left: 90px;
+    }  
+  }
+  ul li:hover:nth-child(3) ~ .activeLine{
+    left: 205px;
+    @media #{$index3} {
+      left: 180px;
+    }  
+  }
+  ul li:hover:nth-child(4) ~ .activeLine{
+    left: 305px;
+    @media #{$index3} {
+      left: 270px;
+    }  
+  }
+  
+  ul li a{
+    text-decoration: none;
+    padding: 0 0px;
+    font-size: 15px;
+    display: inline-block;
+    width: 90px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: $text-light;
+    border-bottom: 3px solid rgba(255,255,255,.4);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }  
+  
+}
     
 #homePage{
   background-color:  $primary-color;

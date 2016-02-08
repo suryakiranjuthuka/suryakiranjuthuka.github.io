@@ -46,7 +46,8 @@ html{
 }
 
 .transition{
-  transition: all 0.2s ;
+  -webkit-transition: all 0.2s ;
+          transition: all 0.2s ;
 }
 
 @mixin vertical-align {
@@ -95,7 +96,8 @@ nav{
     box-sizing: border-box;
     margin-left: 50px;
     padding: 14px 15px 10px;
-    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
     border-top: 3px solid rgba(255, 255, 255, 0);
     border-bottom: 3px solid rgba(255, 255, 255, 0.4);
     @media #{$index1} {
@@ -154,8 +156,10 @@ nav{
     position: absolute;
     bottom: -.4px;
     left: 5px;
-    transition-duration: 0.4s;
-    transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+    -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.06);
     border-radius: 0px;
     @media #{$index3} {
@@ -392,7 +396,8 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
-          transition:  all .1s ease-in-out;
+          -webkit-transition:  all .1s ease-in-out;
+                  transition:  all .1s ease-in-out;
           @media #{$index1} {
             margin-right: 15px;
           }
@@ -410,7 +415,8 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
-          transition:  all .1s ease-in-out;
+          -webkit-transition:  all .1s ease-in-out;
+                  transition:  all .1s ease-in-out;
         }
         
         .portfolioButton, .resumeButton{
@@ -481,7 +487,9 @@ nav{
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      flex-flow: row;
+      -webkit-flex-flow: row;
+          -ms-flex-flow: row;
+              flex-flow: row;
       -webkit-box-pack:center;
       -webkit-justify-content:center;
           -ms-flex-pack:center;
@@ -491,8 +499,13 @@ nav{
           -ms-flex-align: center;
               align-items: center;
       @media #{$portfolio2} {
-        flex-flow: column;
-        align-items: center;
+        -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+                flex-flow: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
         @extend .transition;
       }
       @media #{$portfolio3} {
@@ -623,7 +636,8 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
-          transition:  all .1s ease-in-out;
+          -webkit-transition:  all .1s ease-in-out;
+                  transition:  all .1s ease-in-out;
         }
         
         .visitSite{
@@ -640,7 +654,8 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
-          transition:  all .1s ease-in-out;
+          -webkit-transition:  all .1s ease-in-out;
+                  transition:  all .1s ease-in-out;
         }
         
         .viewMore, .visitSite{
@@ -702,7 +717,6 @@ nav{
         @extend .transition;
       } 
       @media #{$singleProject3} {
-        text-align: left;
         padding: 0 15px 10px;
         @extend .transition;
       }   
@@ -788,9 +802,17 @@ nav{
       padding: 70px 40px;
       text-align: center;
       @media #{$singleProject2} {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-flow: column;
-        align-items: center;
+        -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+                flex-flow: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
         @extend .transition;
       }
       @media #{$singleProject3} {
@@ -819,7 +841,10 @@ nav{
     .leftContainer{
       margin-right: 7%;
       @media #{$singleProject2} {
-        order: 1;
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+            -ms-flex-order: 1;
+                order: 1;
         margin-right: 0%;
         @extend .transition;
       }
@@ -828,7 +853,10 @@ nav{
     .rightContainer{
       margin-right: 1.5%;
       @media #{$singleProject2} {
-        order: 2;
+        -webkit-box-ordinal-group: 3;
+        -webkit-order: 2;
+            -ms-flex-order: 2;
+                order: 2;
         margin-right: 0%;
         @extend .transition;
       }
@@ -1066,7 +1094,9 @@ nav{
         position: absolute;
         left: -25px;
         @media #{$resume3} {
-          transform: none;
+          -webkit-transform: none;
+              -ms-transform: none;
+                  transform: none;
           position: relative;
           left: 0px;
           margin-left: 0px;

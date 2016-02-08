@@ -1,14 +1,10 @@
 @import 'reset';
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
-//VARIABLES
+// COLOR VARIABLES
 $primary-color:   #2C3E50;
 $primary-color-dark: #263645;
-$green-color:   #E74C3C;
-$green-color-dark:   #1CA58C;
 $accent-color:   #E74C3C;
-// $text-dark: #46BCFF;
-// $text-light: #C6E8EF;
 $text-dark: #46BCFF;
 $text-light: #C6E8EF;
 
@@ -63,22 +59,57 @@ html{
 
 
 /* Responsive: Portrait tablets and up */
-//@media screen and (min-width: 1100px) { 
-//}
-// $mobile: "only screen and (max-width: 449px)";
-// $responsive: "only screen and (max-width: 900px)";
 $index1: "only screen and (max-width: 800px)";
 $index2: "only screen and (max-width: 570px)";
-$index3: "only screen and (max-width: 400px)";
+$index3: "only screen and (max-width: 420px)";
+$portfolio1: "only screen and (max-width: 1200px)";
+$portfolio2: "only screen and (max-width: 1000px)";
+$portfolio3: "only screen and (max-width: 800px)";
+$portfolio4: "only screen and (max-width: 570px)";
+$portfolio5: "only screen and (max-width: 400px)";
+$resume1: "only screen and (max-width: 950px)";
+$resume2: "only screen and (max-width: 570px)";
+$resume3: "only screen and (max-width: 470px)";
+$contact1: "only screen and (max-width: 800px)";
+$contact2: "only screen and (max-width: 650px)";
+$contact3: "only screen and (max-width: 570px)";
+$contact4: "only screen and (max-width: 420px)";
+$singleProject1: "only screen and (max-width: 1000px)";
+$singleProject2: "only screen and (max-width: 850px)";
+$singleProject3: "only screen and (max-width: 420px)";
 $nexus: "only screen and (max-width: 440px)";
-$testing: "only screen and (max-width: 400px)";
-    
+$testing: "only screen and (max-width: 800px)";
+  
+//Global Navigation Setup  
 nav{
   background-color: $primary-color-dark;
   padding: 0px;
   height: 50px;
   @media #{$testing} {
     // background-color: $primary-color;
+  }
+  
+  img{ 
+    float: left;
+    height: 50px;
+    box-sizing: border-box;
+    margin-left: 50px;
+    padding: 14px 15px 10px;
+    transition: all .2s ease-in-out;
+    border-top: 3px solid rgba(255, 255, 255, 0);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+    @media #{$index1} {
+      margin-left: 0px;
+      @extend .transition;
+    }
+    @media #{$index2} { 
+      display: none;
+      @extend .transition;
+    }   
+  }
+  
+  img:hover{
+    border-bottom: 3px solid rgba(255, 255, 255, .8);
   }
   
   ul{
@@ -89,7 +120,7 @@ nav{
     margin-right: 45px;
     @media #{$index1} {
       margin-right: -5px;
-      transition: all .2s;
+      @extend .transition;
     }
     @media #{$index2} {
       margin: 0 auto;
@@ -172,6 +203,118 @@ nav{
   }  
   
 }
+
+// SINGLE PAGE NAVIGATION SETUP
+#portfolioPage, #singleProject{
+  nav{ .activeLine{ left: 105px; 
+    @media #{$index3} { left: 90px; } } }
+}
+#resume{
+  nav{ .activeLine{ left: 205px; 
+    @media #{$index3} { left: 180px; } 
+  } }
+}
+#contact{
+  nav{ .activeLine{ left: 305px;
+    @media #{$index3} { left: 270px; } } }
+}
+
+//All Pages Navigation Setup
+#portfolioPage, #resume, #contact, #singleProject{
+  nav{
+    
+    img{
+      margin-left: 100px;
+      @media #{$index1} {
+        margin-left: 15px;
+        @extend .transition;
+      }
+    }
+    
+    ul{
+      margin-right: 95px;
+      @media #{$index1} {
+        margin-right: -5px;
+        margin-right: 10px;
+        @extend .transition;
+      }
+      @media #{$index2} {
+        margin: 0 auto;
+        @extend .transition;
+      }  
+    }
+    
+    ul li:hover:nth-child(1) ~ .activeLine{
+      left: 5px;
+      @media #{$index3} {
+        left: 0px;
+      }  
+    }
+    ul li:hover:nth-child(2) ~ .activeLine{
+      left: 105px;
+      @media #{$index3} {
+        left: 90px;
+      }  
+    }
+    ul li:hover:nth-child(3) ~ .activeLine{
+      left: 205px;
+      @media #{$index3} {
+        left: 180px;
+      }  
+    }
+    ul li:hover:nth-child(4) ~ .activeLine{
+      left: 305px;
+      @media #{$index3} {
+        left: 270px;
+      }  
+    }  
+    
+  }
+}
+
+//Top Level PAGES Header Styles
+#portfolioPage, #resume, #contact{
+  header{
+    .title{
+      display: inline-block;
+      border-right: 2px solid $primary-color-dark;
+      padding-right: 20px;
+      margin-right: 20px;
+      font-size: 50px;
+      color: $text-light;
+      @media #{$portfolio3} {
+        font-size: 38px;
+        @extend .transition;
+      }
+      @media #{$portfolio4} {
+        display: block;
+        border-width: 0px;
+        padding: 0;
+        margin: 0px;
+        @extend .transition;
+      }
+    }
+
+    .desc{
+      color: $text-dark;
+      display: inline-block;
+      font-size: 22px;
+      vertical-align: middle;
+      height: inherit;
+      @include vertical-align;
+      @media #{$portfolio3} {
+        font-size: 17px;
+        @extend .transition;
+      }
+      @media #{$portfolio4} {
+        display: block;
+        margin-top: 10px;
+        @extend .transition;
+      }
+    }
+    
+  }
+}
     
 #homePage{
   background-color:  $primary-color;
@@ -249,6 +392,7 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
+          transition:  all .1s ease-in-out;
           @media #{$index1} {
             margin-right: 15px;
           }
@@ -266,6 +410,7 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
+          transition:  all .1s ease-in-out;
         }
         
         .portfolioButton, .resumeButton{
@@ -283,9 +428,9 @@ nav{
           }
         }
         
-        // .portfolioButton:hover, .resumeButton:hover{
-        //   top: 1px;
-        // }
+        .portfolioButton:hover, .resumeButton:hover{
+          top: 2px;
+        }
       }
       
     }
@@ -295,10 +440,6 @@ nav{
 
 #portfolioPage{
   background-color: $primary-color-dark;
-
-  nav{
-    padding: 15px 50px 12px;
-  }
   
   header{
     width: 100%;
@@ -310,26 +451,6 @@ nav{
     position: relative;
     text-align: center;
     border-radius: 0;
-    
-    .title{
-      display: inline-block;
-      border-right: 2px solid $primary-color-dark;
-      padding-right: 20px;
-      margin-right: 20px;
-      font-size: 50px;
-      color: $text-light;
-    }
-    
-    .desc{
-      color: $text-dark;
-      display: inline-block;
-      font-size: 22px;
-      vertical-align: middle;
-      height: inherit;
-      // text-transform: lowercase;
-      @include vertical-align;
-    }
-    
   }
   
   #contentContainer{
@@ -341,24 +462,26 @@ nav{
     padding: 10px 0;
     max-width: 1700px;
     
-    .singlePortfolio:hover .singlePortfolioDesc{
-      // margin-left: 70px;
-      // margin-left: 90px;
-    }
-    
     .singlePortfolio:hover .singlePortfolioImg{
       box-shadow: 0 20px 30px rgba(0,0,0,0.19), 0 12px 12px rgba(0,0,0,0.23);  
       border: 5px solid lighten(#2a2a2a, 5%);
       // border: 5px solid lighten($accent-color, 30%);
+      @media #{$portfolio3} {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        @extend .transition;
+      }
     }
     
     .singlePortfolio{
       margin: 0 auto;
       text-align: center;
+      padding: 70px 30px;
+      border-bottom: 3px solid $primary-color;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      flex-flow: row;
       -webkit-box-pack:center;
       -webkit-justify-content:center;
           -ms-flex-pack:center;
@@ -367,24 +490,42 @@ nav{
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      padding: 70px 30px;
-      border-bottom: 3px solid $primary-color;
+      @media #{$portfolio2} {
+        flex-flow: column;
+        align-items: center;
+        @extend .transition;
+      }
+      @media #{$portfolio3} {
+        padding: 50px 15px;
+        @extend .transition;
+      }
+      @media #{$portfolio4} {
+        padding: 50px 0px;
+        @extend .transition;
+      }
       
       .singlePortfolioImgContainer{
         width: 43%;
         display: inline-block;
-        // border-top: 15px solid #D8D8D8;
-        // border-top-right-radius: 2px;
-        // border-top-left-radius: 2px;
-        // color: #B2B5B1;
+        @media #{$portfolio2} {
+          width: 65%;
+          @extend .transition;
+        }
+        @media #{$portfolio4} {
+          width: 82%;
+          @extend .transition;
+        }
+        @media #{$portfolio5} {
+          width: 90%;
+          @extend .transition;
+        }
       }
       
       .singlePortfolioImg{
         // max-width: 500px;
-        min-width: 320px;
+        // min-width: 320px;
         max-width: 100%;
         @extend .boxShadow1;
-        // border: 5px solid lighten(#2a2a2a, 5%);
         border: 5px solid rgba(0,0,0,0);
         border-radius: 2px;
         display: inline-block;
@@ -395,27 +536,60 @@ nav{
         display: inline-block;
         margin-left: 80px;
         text-align: left;
-        -webkit-transition: all .37s;
-                transition: all .37s;
         min-width: 405px;
         // @include vertical-align;
         // vertical-align:text-bottom;
+        @media #{$portfolio1} {
+          margin-left: 50px;
+          @extend .transition;
+        }
+        @media #{$portfolio2} {
+          min-width: 100px;
+          width: 100%;
+          margin-top: 40px;
+          margin-left: 0px;
+          text-align: center;
+          @extend .transition;
+        }
+        @media #{$portfolio3} {
+          margin-top: 25px;
+          @extend .transition;
+        }
+        @media #{$portfolio5} {
+          margin-top: 22px;
+          @extend .transition;
+        }
       }
       
       .projectName{
         font-size: 30px;
         color: $text-light;
-        // border-bottom: 2px solid $primary-color;
         padding-bottom: 0px;
+        @media #{$portfolio4} {
+          font-size: 28px;
+          @extend .transition;
+        }
+        @media #{$portfolio5} {
+          font-size: 23px;
+          @extend .transition;
+        }
       }
       
       .jobTitle{
         font-size: 18px;
         color: $text-dark;
+        @media #{$portfolio5} {
+          font-size: 16px;
+          @extend .transition;
+        }
       }
       
       .tags{
         margin: 20px 0 30px;
+        @media #{$portfolio5} {
+          margin: 15px 0 23px;
+          @extend .transition;
+        }
       }
       
       .tags span{
@@ -449,6 +623,7 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
+          transition:  all .1s ease-in-out;
         }
         
         .visitSite{
@@ -465,7 +640,19 @@ nav{
           position: relative;
           top: 0px;
           text-decoration: none;
+          transition:  all .1s ease-in-out;
         }
+        
+        .viewMore, .visitSite{
+          @media #{$portfolio5} {
+            width: 90px;
+            font-size: 14px;
+            border-width: 2px;
+            padding: 5px 15px;
+            @extend .transition;
+          }
+        }
+        
       }
       
       .buttonsContainer a:hover{
@@ -482,10 +669,6 @@ nav{
 
 // SINGLE PROJECT PAGES
 #singleProject{
-
-  nav{
-    padding: 15px 50px 12px;
-  }
   
   header{
     width: 100%;
@@ -504,12 +687,39 @@ nav{
       text-align: left;
       border-right: 2px solid $primary-color-dark;
       margin-right: 30px;
+      @media #{$singleProject1} {
+        vertical-align: top;
+        padding-top: 5px;
+        @extend .transition;
+      }  
+      @media #{$singleProject2} {
+        display: block;
+        text-align: center;
+        padding-top: 0px;
+        margin-right: 0px;
+        border-width: 0px;
+        padding-bottom: 10px;
+        @extend .transition;
+      } 
+      @media #{$singleProject3} {
+        text-align: left;
+        padding: 0 15px 10px;
+        @extend .transition;
+      }   
       
       .projectName{
         display: block;
         padding-right: 30px;
         font-size: 37px;
         color: $text-light;
+        @media #{$singleProject1} {
+          font-size: 28px;
+          @extend .transition;
+        }  
+        @media #{$singleProject2} {
+          padding-right: 0px;
+          @extend .transition;
+        }  
       }
       
       .jobTitle{
@@ -518,13 +728,23 @@ nav{
         font-size: 21px;
         vertical-align: middle;
         height: inherit;
+        @media #{$singleProject1} {
+          font-size: 18px;
+          @extend .transition;
+        }  
       }
     }
     
     .secondHalf{
       display: inline-block;
-      // width: 30%;
       text-align: left;
+      @media #{$singleProject2} {
+        // display: block;
+        margin: 0 auto;
+        padding: 10px 15px 0;
+        border-top: 2px solid $primary-color-dark;
+        @extend .transition;
+      }  
       
       .secondHalfLine{
         color: rgba(255, 255, 255, 0.5);
@@ -567,11 +787,27 @@ nav{
       margin: 0 auto;
       padding: 70px 40px;
       text-align: center;
+      @media #{$singleProject2} {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        @extend .transition;
+      }
+      @media #{$singleProject3} {
+        padding: 70px 25px;
+        @extend .transition;
+      }
     }
     
     .rightContainer,.leftContainer{
       float: right;
       width: 45%;
+      @media #{$singleProject2} {
+        float: none;
+        width: auto;
+        max-width: 500px;
+        @extend .transition;
+      }
       
       img{
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -582,10 +818,20 @@ nav{
     
     .leftContainer{
       margin-right: 7%;
+      @media #{$singleProject2} {
+        order: 1;
+        margin-right: 0%;
+        @extend .transition;
+      }
     }
     
     .rightContainer{
       margin-right: 1.5%;
+      @media #{$singleProject2} {
+        order: 2;
+        margin-right: 0%;
+        @extend .transition;
+      }
     }
 
     
@@ -650,10 +896,6 @@ nav{
 
 #resume{
   background-color: $primary-color-dark;
-
-  nav{
-    padding: 15px 50px 12px;
-  }
   
   header{
     width: 100%;
@@ -665,26 +907,6 @@ nav{
     position: relative;
     text-align: center;
     border-radius: 0;
-    
-    .title{
-      display: inline-block;
-      border-right: 2px solid $primary-color-dark;
-      padding-right: 20px;
-      margin-right: 20px;
-      font-size: 50px;
-      color: $text-light;
-    }
-    
-    .desc{
-      color: $text-dark;
-      display: inline-block;
-      font-size: 22px;
-      vertical-align: middle;
-      height: inherit;
-      // text-transform: lowercase;
-      @include vertical-align;
-    }
-    
   }
   
   #contentContainer{
@@ -703,6 +925,19 @@ nav{
       font-size: 0px;
       margin: 100px auto;
       box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      @media #{$resume1} {
+        height: auto;
+        margin: 80px 50px;
+        @extend .transition;
+      }
+      @media #{$resume2} {
+        margin: 80px 15px;
+        @extend .transition;
+      }
+      @media #{$resume3} {
+        margin: 80px 10px;
+        @extend .transition;
+      }
     }
     
     .whiteHalf{
@@ -713,12 +948,38 @@ nav{
       box-sizing: border-box;
       padding: 50px 40px 50px 60px; 
       vertical-align: top;
+      @media #{$resume1} {
+        display: block;
+        width: 100%;
+        padding: 50px 50px 20px 50px;
+        margin: 0 auto;
+        @extend .transition;
+      }
+      @media #{$resume2} {
+        padding: 50px 40px 20px 40px;
+        @extend .transition;
+      }
+      @media #{$resume3} {
+        padding: 50px 15px 20px 15px;
+        @extend .transition;
+      }
       
       h1{
         font-size: 45px;
         font-weight: 300;
         color: $accent-color;
         line-height: 1.1;
+        @media #{$resume1} {
+          text-align: center;
+          font-size: 40px;
+          @extend .transition;
+        }
+        @media #{$resume3} {
+          text-align: center;
+          font-size: 28px;
+          font-weight: 400;
+          @extend .transition;
+        }
       }
       
       h2{
@@ -726,6 +987,16 @@ nav{
         font-weight: 300;
         color: $primary-color;
         margin-bottom: 40px;
+        @media #{$resume1} {
+          text-align: center;
+          font-size: 18px;
+          @extend .transition;
+        }
+        @media #{$resume3} {
+          font-size: 14px;
+          font-weight: 400;
+          @extend .transition;
+        }
       }
       
       h3{
@@ -736,6 +1007,10 @@ nav{
         letter-spacing: .2px;
         line-height: 1.3;
         margin-bottom: 5px;
+        @media #{$resume3} {
+          font-size: 16px;
+          @extend .transition;
+        }
       }
       
       h4{
@@ -745,6 +1020,11 @@ nav{
         margin-top: 25px;
         margin-left: 15px;
         line-height: 1.1;
+        @media #{$resume3} {
+          font-size: 14px;
+          margin-top: 10px;
+          @extend .transition;
+        }
       }
       
       p{
@@ -765,6 +1045,11 @@ nav{
         border-left: 2px solid $accent-color;
         margin-left: 25px;
         position: relative;
+        @media #{$resume3} {
+          border-width: 0px;
+          margin-left: 0px;
+          @extend .transition;
+        }
       }
 
       .verticalText{
@@ -780,6 +1065,14 @@ nav{
         color: $accent-color;
         position: absolute;
         left: -25px;
+        @media #{$resume3} {
+          transform: none;
+          position: relative;
+          left: 0px;
+          margin-left: 0px;
+          margin-bottom: 10px;
+          @extend .transition;
+        }
       }
       
       .profile .verticalText{
@@ -790,6 +1083,13 @@ nav{
       }
       .degreeProject .verticalText{
         top: 120px;
+      }
+      
+      .profile .verticalText, .jobExperience .verticalText, .degreeProject .verticalText{
+        @media #{$resume3} {
+          top: 0px;
+          @extend .transition;
+        }
       }
       
       .project{
@@ -815,9 +1115,29 @@ nav{
       vertical-align: top;
       font-size: 16px;
       line-height: 1.45;
+      @media #{$resume1} {
+        display: block;
+        width: 100%;
+        padding: 1px 50px 20px 50px;
+        margin: 0 auto;
+        text-align: center;
+        @extend .transition;
+      }
+      @media #{$resume2} {
+        text-align: left;
+        @extend .transition;
+      }
+      @media #{$resume3} {
+        padding: 30px 15px 20px 15px;
+        @extend .transition;
+      }
       
       section{
         margin: 57px 0;
+        @media #{$resume3} {
+          margin: 30px 0;
+          @extend .transition;
+        }
         
         h3{
           font-size: 18px;
@@ -838,6 +1158,10 @@ nav{
           display: inline-block;
           width: 75px;
           vertical-align: top;
+          @media #{$resume3} {
+            margin-bottom: 10px;
+            @extend .transition;
+          }
         }
         
         .textContainer{
@@ -854,6 +1178,10 @@ nav{
           text-align: left;
           display: inline-block;
           vertical-align: top;
+          @media #{$resume3} {
+            margin-bottom: 10px;
+            @extend .transition;
+          }
         }
         .skillsContainer1{
           width: 112px;
@@ -875,10 +1203,6 @@ nav{
 
 #contact{
   background-color: $primary-color-dark;
-
-  nav{
-    padding: 15px 50px 12px;
-  }
   
   header{
     width: 100%;
@@ -890,40 +1214,27 @@ nav{
     position: relative;
     text-align: center;
     border-radius: 0;
-    
-    .title{
-      display: inline-block;
-      border-right: 2px solid $primary-color-dark;
-      padding-right: 20px;
-      margin-right: 20px;
-      font-size: 50px;
-      color: $text-light;
-    }
-    
-    .desc{
-      color: $text-dark;
-      display: inline-block;
-      font-size: 22px;
-      vertical-align: middle;
-      height: inherit;
-      // text-transform: lowercase;
-      @include vertical-align;
-    }
-    
   }
   
   #contentContainer{
     z-index: 0;
     position: relative;
-    width: 100%;
     background-color: $primary-color;
     margin: 70px auto;
-    padding: 0px 0;
     max-width: 600px;
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 50px 80px;
     text-align: center;
+    @media #{$contact1} {
+      margin: 70px auto;
+      padding: 50px 0px;
+      @extend .transition;
+    }
+    @media #{$contact2} {
+      margin: 70px 25px;
+      @extend .transition;
+    }
     
     .label{
       font-size: 16px;
@@ -936,8 +1247,16 @@ nav{
     .text{
       font-size: 30px;
       color: $text-light;
-      // margin: 20px 0 30px;
       margin-bottom: 50px;
+      @media #{$contact3} {
+        font-size: 24px;
+        margin-bottom: 30px;
+        @extend .transition;
+      }
+      @media #{$contact4} {
+        font-size: 22px;
+        @extend .transition;
+      }
     }
     
     .socialIcons{
@@ -952,6 +1271,14 @@ nav{
                 transition: all .2s;
         @extend .boxShadow1;
         padding: 5px;
+        @media #{$contact1} {
+          margin: 0px 20px;
+          @extend .transition;
+        }
+        @media #{$contact3} {
+          margin: 0px 10px;
+          @extend .transition;
+        }
       }
       
       svg:hover{
@@ -964,7 +1291,4 @@ nav{
   }
 
 }
-
-
-
 

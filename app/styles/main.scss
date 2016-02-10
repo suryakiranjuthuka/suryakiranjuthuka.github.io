@@ -63,6 +63,7 @@ html{
 $index1: "only screen and (max-width: 800px)";
 $index2: "only screen and (max-width: 570px)";
 $index3: "only screen and (max-width: 420px)";
+$index4: "only screen and (max-width: 360px)";
 $portfolio1: "only screen and (max-width: 1200px)";
 $portfolio2: "only screen and (max-width: 1000px)";
 $portfolio3: "only screen and (max-width: 800px)";
@@ -132,6 +133,11 @@ nav{
       width: 360px;
       @extend .transition;
     }   
+    @media #{$index4} {
+      width: 270px;
+      // display: none;
+      @extend .transition;
+    }   
   }
     
   ul li{ 
@@ -145,6 +151,14 @@ nav{
       @extend .transition;
     }     
   }  
+  
+  // SPECIAL DISPLAY NONE for iPhone 5/5S
+  ul li:nth-child(4){
+    @media #{$index4} {
+      display: none;
+      @extend .transition;
+    } 
+  }
   
   .activeLine{
     width: 90px;
@@ -345,6 +359,14 @@ nav{
       width: 60%;
       @media #{$index2} {
         width: 82%;
+        @extend .transition;
+      }   
+      @media #{$index3} {
+        width: 82%;
+        @extend .transition;
+      }   
+      @media #{$index4} {
+        top: 55%;
         @extend .transition;
       }      
       
@@ -615,6 +637,13 @@ nav{
         // font-weight: 700;
       }
       
+      .tags span:nth-child(4){
+        @media #{$index4} { 
+          display: none;
+          @extend .transition;
+        }  
+      }
+      
       .buttonsContainer{
         font-size: 15px;
         display: block;
@@ -782,6 +811,14 @@ nav{
           margin-right: 5px;
           font-size: 14px;
         }  
+        
+        span:nth-child(4){
+          @media #{$index4} { 
+            display: none;
+            @extend .transition;
+          }  
+        }
+        
       }
 
     }
